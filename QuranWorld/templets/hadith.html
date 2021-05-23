@@ -1,0 +1,240 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Quran World</title>
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+<link rel="shortcut icon" href="{% static 'images/ico/favicon.ico' %}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'images/ico/apple-touch-icon-144-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'images/ico/apple-touch-icon-114-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'images/ico/apple-touch-icon-72-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'images/ico/apple-touch-icon-57-precomposed.png' %}">
+<style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+       
+        
+        .searchh {
+          width: 100%;
+          position: relative;
+          display: flex;
+          
+        }
+        
+        .searchTerm {
+          width: 100%;
+          border: 3px solid #1EBB11;
+          border-right: none;
+          padding: 5px;
+          height: 37px;
+          border-radius: 5px 0 0 5px;
+          outline: none;
+          
+        }
+        
+        .searchTerm:focus{
+         
+          height: 37px;
+        }
+        
+        .searchButton {
+          width: 40px;
+          height: 36px;
+          border: 1px solid #1EBB11;
+          background: #1EBB11;
+          text-align: center;
+          color: #fff;
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+          font-size: 20px;
+        }
+        
+        /*Resize the wrap to see the search bar change!*/
+        .wrap{
+          width: 30%;
+          position: absolute;
+          
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+</style>
+</head>
+<body class="homepage">
+<header id="header">
+<div class="top-bar">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 col-xs-4">
+<div class="top-number"><p><i class="fa fa-phone-square"></i> +92 3066364644</p></div>
+</div>
+<div class="col-sm-6 col-xs-8">
+<div class="social">
+<ul class="social-share">
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+</ul>
+<div class="search">
+<form role="form">
+
+<input type="text" class="search-form" autocomplete="off" placeholder="Search">
+
+<i class="fa fa-search"></i>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="navbar navbar-inverse" role="banner">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="{% static 'images/log.png' %}" alt="logo"></a>
+</div>
+<div class="collapse navbar-collapse navbar-right">
+<ul class="nav navbar-nav">
+<li><a href="/">Home</a></li>
+<li><a href="/quran">Search From Quran </a></li>
+<li class="active"><a href="/hadith">Search From Hadith</a></li>
+<li><a href="prayers.html">Learn Duas</a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<i class="fa fa-angle-down"></i></a>
+<ul class="dropdown-menu">
+<li><a href="#">One</a></li>
+<li><a href="#">One</a></li>
+<li><a href="#">One</a></li>
+<li><a href="#">One</a></li>
+</ul>
+</li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</header>
+<section>
+<div class="wrap">
+        <form action="searchFromHadith">
+        <div class="searchh">
+            
+           <input type="text" class="searchTerm" placeholder="Search any query from Hadith" name="query">
+           
+          <button type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+              <button type="submit" class="searchButton" name="vs">
+                  
+              <i class="fa fa-microphone" aria-hidden="true"></i>
+             
+          </button>
+
+        </div>
+        <div class="container">
+            <div class="align-center">
+              <label class="radio-inline">
+                <input type="radio" name="english">English
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="arabic">Arabic
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="urdu">Urdu
+              </label>
+            </div>
+          </div>
+        </form>
+     </div>
+</section>
+<section>
+        <div class="container" style="margin-top: -100px">
+            <h2 style="color: black">Searched Query: {{query}}</h2>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Sr No</th>
+                      <th>Chapter No</th>
+                      <th>Chapter Name</th>
+                      <th>Chain Index</th>
+                      <th>Hadith</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for CHAPTERNO,CHAPTERNAME,CHAININDEX,HADITH,count in results %}
+                      
+                      <tr>
+                        <td>{{count}}</td>
+                        <td>{{CHAPTERNO}}</td>
+                        <td>{{CHAPTERNAME}}</td>
+                        <td>{{CHAININDEX}}</td>
+                        <td>{{HADITH}}</td>
+                        
+                      </tr>
+                      {%endfor%}
+  
+                  </tbody>
+                </table>
+              </div>
+              
+</section>
+
+<section id="recent-works">
+    <div class="container">
+    <div class="center wow fadeInDown">
+    <h2>Why do we need to know about Islam?</h2>
+    <p class="lead">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم<br>Islam is the second largest religion in the world (after Christianity) and will soon be the second largest religion in America. <br>
+        The Muslims believe in one God, the creator, sustainer, ruler, and judge of the universe.
+         Muslims believe in prophets, not just the Prophet Muhammad S.A.W.W (Last Prophet) but the prophets of the Hebrew Bible, including Abraham and Moses, and of the
+          New Testament, Jesus and John the Baptist. They also believe in angels, heaven, hell, and the Day of Judgment. 
+        Islam acknowledges that God’s revelation was received in the Torah, the Psalms, the Gospels, and the Quran
+    </p>
+    
+    </div>
+    </div>
+    </section>
+<!--start of prayer container-->
+<div style=>
+
+
+<footer id="footer" class="midnight-blue" style="margin-bottom: 0%" >
+<div class="container" >
+<div class="row">
+<div class="col-sm-6">
+<a target="_blank" href="" title="Free Islamic Templates">QURAN WORLS</a> &copy;  All Rights Reserved.
+</div>
+<div class="col-sm-6">
+<ul class="pull-right">
+<li><a href="/">Home</a></li>
+<li><a href="quran">Search From Quran</a></li>
+<li><a href="hadith">Search From Hadith</a></li>
+<li><a href="contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+</body>
+</html>
